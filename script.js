@@ -310,6 +310,26 @@ if (
   const nextSlide = projectSlides[0].cloneNode(true);
   let pendingWrap = null;
   let pendingWrapSlide = null;
+  const syncProjectPreviewAccess = () => {
+    const viewportCenter = window.innerHeight / 2;
+    const centerBand = window.innerHeight * 0.15;
+
+    projectSlides.forEach((slide) => {
+      const screen = slide.querySelector(".browser-screen");
+      const iframe = screen?.querySelector("iframe");
+      if (!screen || !iframe) {
+        return;
+      }
+
+      const bounds = screen.getBoundingClientRect();
+      const isCentered = slide === projectSlides[activeProject] &&
+        bounds.bottom > viewportCenter - centerBand &&
+        bounds.top < viewportCenter + centerBand;
+
+      screen.classList.toggle("is-scroll-enabled", isCentered);
+      iframe.tabIndex = isCentered ? 0 : -1;
+    });
+  };
   const getSlideTransform = (trackIndex) => {
     const slideWidth = projectSlides[0].getBoundingClientRect().width;
     const trackGap = Number.parseFloat(getComputedStyle(projectTrack).columnGap) || 0;
@@ -356,11 +376,11 @@ if (
       const isActive = slideIndex === activeProject;
       slide.classList.toggle("is-active", isActive);
       slide.setAttribute("aria-hidden", String(!isActive));
-      slide.querySelector("iframe")?.setAttribute("tabindex", isActive ? "0" : "-1");
       slide.querySelectorAll("a").forEach((link) => {
         link.tabIndex = isActive ? 0 : -1;
       });
     });
+    syncProjectPreviewAccess();
 
     projectDots.forEach((dot, dotIndex) => {
       const isActive = dotIndex === activeProject;
@@ -402,6 +422,7 @@ if (
   const projectResizeObserver = new ResizeObserver(updateSlidePosition);
   projectResizeObserver.observe(projectSlides[0]);
   window.addEventListener("resize", updateSlidePosition, { passive: true });
+  window.addEventListener("scroll", syncProjectPreviewAccess, { passive: true });
   window.matchMedia("(max-width: 1000px)").addEventListener("change", updateSlidePosition);
   showProject(activeProject);
 }

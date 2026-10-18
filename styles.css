@@ -629,8 +629,13 @@ button {
   height: 100%;
   border: 0;
   background: #f4f1ed;
+  pointer-events: none;
   touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
+}
+
+.browser-screen.is-scroll-enabled iframe {
+  pointer-events: auto;
 }
 
 .slide-controls {
