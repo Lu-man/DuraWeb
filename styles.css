@@ -1715,7 +1715,7 @@ body.motion-ready [data-reveal].is-visible {
   }
 
   .site-footer > p {
-    display: none;
+    display: flex;
   }
 
   .site-footer > span {
