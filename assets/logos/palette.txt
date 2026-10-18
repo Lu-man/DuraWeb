@@ -1,0 +1,33 @@
+DuraWeb brand palette
+
+Brand navy                 #152643
+Brand gold                 #B18C3E
+Brand white                #F2F2F2
+
+Light theme
+--background               #FFFFFF
+--foreground               #152643
+--card                     #F7F8FA
+--card-foreground          #152643
+--primary                  #B18C3E
+--primary-foreground       #152643
+--secondary                #EEF1F5
+--secondary-foreground     #152643
+--muted-foreground         #657186
+--border                   #D9DEE7
+--ring                     #152643
+Logo                       LogoSVG.svg (navy and gold)
+
+Dark theme
+--background               #152643
+--foreground               #F2F2F2
+--card                     #1B3150
+--card-foreground          #F2F2F2
+--primary                  #B18C3E
+--primary-foreground       #152643
+--secondary                #1B3150
+--secondary-foreground     #F2F2F2
+--muted-foreground         #B0BAC8
+--border                   #354761
+--ring                     #B18C3E
+Logo                       LogoSVG_DarkMode.svg (white and gold)
