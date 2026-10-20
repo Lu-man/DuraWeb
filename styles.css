@@ -1344,6 +1344,12 @@ body.motion-ready [data-reveal].is-visible {
     margin-left: calc(var(--logo-w) * -0.21);
   }
 
+  .footer-brand .brand-logo {
+    --logo-w: 168px;
+    width: var(--logo-w);
+    margin-left: calc(var(--logo-w) * -0.21);
+  }
+
   .site-header {
     padding-right: 6%;
     padding-left: 6%;
@@ -1820,7 +1826,7 @@ body.motion-ready [data-reveal].is-visible {
   }
 
   .footer-brand .brand-logo {
-    width: 144px;
+    --logo-w: 144px;
   }
 
   .site-footer > p {
@@ -1858,7 +1864,7 @@ body.motion-ready [data-reveal].is-visible {
   }
 
   .footer-brand .brand-logo {
-    width: 138px;
+    --logo-w: 138px;
   }
 
   .hero-bottom {
