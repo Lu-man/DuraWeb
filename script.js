@@ -424,6 +424,28 @@ if (
   window.addEventListener("resize", updateSlidePosition, { passive: true });
   window.addEventListener("scroll", syncProjectPreviewAccess, { passive: true });
   window.matchMedia("(max-width: 1000px)").addEventListener("change", updateSlidePosition);
+
+  const swipeQuery = window.matchMedia("(max-width: 1000px)");
+  const projectStage = projectTrack.parentElement;
+  let swipeStart = null;
+  projectStage.addEventListener("pointerdown", (event) => {
+    swipeStart = swipeQuery.matches && event.isPrimary ? { x: event.clientX, y: event.clientY } : null;
+  });
+  projectStage.addEventListener("pointerup", (event) => {
+    if (!swipeStart) {
+      return;
+    }
+    const deltaX = event.clientX - swipeStart.x;
+    const deltaY = event.clientY - swipeStart.y;
+    swipeStart = null;
+    if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+      const direction = deltaX < 0 ? 1 : -1;
+      setProject(activeProject + direction, direction);
+    }
+  });
+  projectStage.addEventListener("pointercancel", () => {
+    swipeStart = null;
+  });
   showProject(activeProject);
 }
 
@@ -447,10 +469,11 @@ if (contactForm instanceof HTMLFormElement && formStatus) {
     const formData = new FormData(contactForm);
     const name = String(formData.get("name") ?? "");
     const email = String(formData.get("email") ?? "");
+    const phone = String(formData.get("phone") ?? "");
     const project = String(formData.get("project") ?? "");
     const message = String(formData.get("message") ?? "");
     const subject = `Website enquiry from ${name}`;
-    const body = [`Name: ${name}`, `Email: ${email}`, `Project: ${project || "Not specified"}`, "", message].join("\n");
+    const body = [`Name: ${name}`, `Email: ${email}`, `Phone: ${phone || "Not provided"}`, `Project: ${project || "Not specified"}`, "", message].join("\n");
 
     window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     formStatus.textContent = `Your email app should open with your message addressed to ${recipient}.`;

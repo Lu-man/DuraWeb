@@ -3,13 +3,41 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DuraWeb | Custom Website Design &amp; Development Studio, South Africa</title>
     <meta
       name="description"
-      content="DuraWeb creates considered, character-rich websites for brands with something to say."
+      content="DuraWeb is an independent web design and development studio in South Africa. We build fast, considered, character-rich websites for brands with something to say."
     />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="author" content="DuraWeb" />
     <meta name="theme-color" content="#152643" />
-    <title>DuraWeb — Digital, with intention.</title>
+    <link rel="canonical" href="https://duraweb.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DuraWeb" />
+    <meta property="og:locale" content="en_ZA" />
+    <meta property="og:title" content="DuraWeb | Custom Website Design &amp; Development Studio" />
+    <meta
+      property="og:description"
+      content="Independent web design and development studio building fast, considered websites for real businesses."
+    />
+    <meta property="og:url" content="https://duraweb.com/" />
+    <meta property="og:image" content="https://duraweb.com/assets/images/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="DuraWeb logo on a navy background with the tagline Digital, with intention." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DuraWeb | Custom Website Design &amp; Development Studio" />
+    <meta
+      name="twitter:description"
+      content="Independent web design and development studio building fast, considered websites for real businesses."
+    />
+    <meta name="twitter:image" content="https://duraweb.com/assets/images/og-image.png" />
+
     <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/logos/favicon.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="assets/logos/favicon.png" />
+    <link rel="preload" href="assets/logos/LogoSVG_DarkMode.svg" as="image" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,12 +46,46 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://duraweb.com/#website",
+            "url": "https://duraweb.com/",
+            "name": "DuraWeb",
+            "inLanguage": "en-ZA",
+            "publisher": { "@id": "https://duraweb.com/#business" }
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://duraweb.com/#business",
+            "name": "DuraWeb",
+            "url": "https://duraweb.com/",
+            "logo": "https://duraweb.com/assets/logos/favicon.png",
+            "image": "https://duraweb.com/assets/images/og-image.png",
+            "description": "Independent web design and development studio building fast, considered websites for real businesses.",
+            "email": "hello@duraweb.com",
+            "telephone": "+27836095579",
+            "areaServed": "South Africa",
+            "priceRange": "$$",
+            "knowsAbout": ["Web design", "Web development", "Website redesign", "Digital direction"],
+            "makesOffer": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital direction" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web design" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web development" } }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <a class="brand" href="#home" aria-label="DuraWeb home">
-        <img class="brand-logo" src="assets/logos/LogoSVG_DarkMode.svg" alt="DuraWeb" />
+        <img class="brand-logo" src="assets/logos/LogoSVG_DarkMode.svg" alt="DuraWeb" width="281" height="63" />
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
         <span class="menu-toggle-label">Menu</span>
@@ -91,7 +153,7 @@
         <div class="project-showcase" aria-label="Client website slideshow">
           <div class="project-stage">
             <div class="project-track" id="project-track">
-              <article class="project-card is-active" data-project-slide aria-hidden="false">
+              <article class="project-card is-active" data-project-slide data-site="alsr" aria-hidden="false">
                 <div class="browser-window">
                   <div class="browser-toolbar">
                     <span class="browser-lights" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -117,7 +179,7 @@
                   <a class="project-visit" href="https://alsr-sa.com/" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">↗</span></a>
                 </div>
               </article>
-              <article class="project-card" data-project-slide aria-hidden="true">
+              <article class="project-card" data-project-slide data-site="charmz" aria-hidden="true">
                 <div class="browser-window">
                   <div class="browser-toolbar">
                     <span class="browser-lights" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -197,7 +259,11 @@
             <label for="contact-email">Email address</label>
             <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com" required />
           </div>
-          <div class="form-field form-field-full">
+          <div class="form-field">
+            <label for="contact-phone">Phone number</label>
+            <input id="contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="+27 12 345 6789" />
+          </div>
+          <div class="form-field">
             <label for="contact-service">What do you have in mind?</label>
             <select id="contact-service" name="project">
               <option value="">Choose a project type</option>
@@ -228,9 +294,9 @@
 
     <footer class="site-footer">
       <a class="brand footer-brand" href="#home" aria-label="DuraWeb, back to top">
-        <img class="brand-logo" src="assets/logos/LogoSVG_DarkMode.svg" alt="DuraWeb" />
+        <img class="brand-logo" src="assets/logos/LogoSVG_DarkMode.svg" alt="DuraWeb" width="281" height="63" />
       </a>
-      <p>Digital, with intention.</br> Designed by DuraWeb</p>
+      <p>Digital, with intention.<br /><strong>Designed by DuraWeb</strong></p>
       <span>© <span id="current-year">2025</span> DURAWEB STUDIO</span>
     </footer>
   </body>
