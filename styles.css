@@ -1123,6 +1123,7 @@ button {
 
 .form-field textarea {
   min-height: 142px;
+  max-height: 320px;
   resize: vertical;
 }
 
