@@ -1335,7 +1335,13 @@ body.motion-ready [data-reveal].is-visible {
 
 @media (max-width: 1000px) {
   .brand-logo {
-    width: 27vw;
+    --logo-w: 27vw;
+    width: var(--logo-w);
+  }
+
+  /* The logo artwork has ~21% empty space on its left; pull it back so the mark sits on the page margin */
+  .site-header .brand-logo {
+    margin-left: calc(var(--logo-w) * -0.21);
   }
 
   .site-header {
@@ -1407,7 +1413,8 @@ body.motion-ready [data-reveal].is-visible {
 
 @media (min-width: 701px) and (max-width: 800px) {
   .brand-logo {
-    width: 328px;
+    --logo-w: 328px;
+    width: var(--logo-w);
   }
   .site-header {
     height: 80px;
@@ -1488,7 +1495,8 @@ body.motion-ready [data-reveal].is-visible {
   }
 
   .brand-logo {
-    width: min(260px, calc(88vw - 100px));
+    --logo-w: min(260px, calc(88vw - 100px));
+    width: var(--logo-w);
   }
   .menu-toggle {
     display: inline-flex;
@@ -1845,7 +1853,8 @@ body.motion-ready [data-reveal].is-visible {
   }
 
   .brand-logo {
-    width: min(315px, calc(88vw - 100px));
+    --logo-w: min(315px, calc(88vw - 100px));
+    width: var(--logo-w);
   }
 
   .footer-brand .brand-logo {
