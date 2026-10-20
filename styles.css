@@ -655,7 +655,7 @@ button {
   pointer-events: none;
   touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
-  animation: preview-autoscroll calc(var(--page-h, 4000) * 0.0054s) infinite;
+  animation: preview-autoscroll calc(var(--page-h, 4000) * 0.008s) infinite;
 }
 
 .project-card:not(.is-active) .browser-screen iframe {
